@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace GetAPISunset
+namespace GetAPISunset.AnvandsEjJustNu
 {
     public class Service
     {
@@ -30,7 +30,7 @@ namespace GetAPISunset
         //string uri = $"https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2022-10-13";
         //private async Task<RootSkaHa> ReadWebApiAsync(string uri)
         //{
-     
+
         //        HttpResponseMessage response = await httpClient.GetAsync(uri);
         //        response.EnsureSuccessStatusCode();
         //        Root wd = await response.Content.ReadFromJsonAsync<Root>();
@@ -38,7 +38,7 @@ namespace GetAPISunset
         //        RootSkaHa forecast = new RootSkaHa();
         //        forecast.results.sunrise = wd.results.sunrise;
         //        forecast.results.sunset = wd.results.sunset;
-                
+
 
         //        return forecast;
 
