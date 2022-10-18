@@ -3,6 +3,8 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 
 
@@ -11,7 +13,7 @@ namespace GetAPISunset
     class Program
     {
        // public static async Task<string> GetWebApiLongLatAsync()
-        public static async Task<ResultsSkaHa> GetWebApiLongLatAsync()
+        public static async Task<Root> GetWebApiLongLatAsync()
         {
         
             HttpClient httpClient = new HttpClient();
@@ -19,18 +21,19 @@ namespace GetAPISunset
              HttpResponseMessage response = await httpClient.GetAsync("https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2022-10-13");
             response.EnsureSuccessStatusCode();
             //var result = await response.Content.ReadAsStringAsync();
+                        //response.EnsureSuccessStatusCode();
 
-            response.EnsureSuccessStatusCode();
+            Root wd = await response.Content.ReadFromJsonAsync<Root>();
 
-            Results wd = await response.Content.ReadFromJsonAsync<Results>();
+            //RootSkaHa ff = new RootSkaHa();
+            //ff.results.sunrise = wd.results.sunrise;
+            //ff.results.sunset = wd.results.sunset;
+            //ff.results.sunset = wd.results.sunset;
+            //ff.results = wd.results;
 
-            ResultsSkaHa ff = new ResultsSkaHa();
-            ff.sunrise = wd.sunrise;
-            ff.sunset = wd.sunset;
 
 
-
-            return ff;
+            return wd;
 
 
 
@@ -42,11 +45,11 @@ namespace GetAPISunset
             var result = await GetWebApiLongLatAsync();
 
 
-            Console.WriteLine($"Sunset: {result.sunset}");
-            Console.WriteLine($"Sunrise: {result.sunrise}");
+            Console.WriteLine($"Sunset: {result.results.sunset}");
+            Console.WriteLine($"Sunrise: {result.results.sunrise}");
         }
 
-        UppNer uppner = new UppNer();
+        //UppNer uppner = new UppNer();
     }
 }
     

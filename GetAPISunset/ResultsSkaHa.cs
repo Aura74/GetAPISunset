@@ -9,8 +9,10 @@ namespace GetAPISunset
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class ResultsSkaHa
     {
-        public DateTime sunrise { get; set; }
-        public DateTime sunset { get; set; }
+        public string? sunrise { get; set; }
+        public string? sunset { get; set; }
+        //public DateTime sunrise { get; set; }
+        //public DateTime sunset { get; set; }
         //public DateTime solar_noon { get; set; }
         //public int day_length { get; set; }
         //public DateTime civil_twilight_begin { get; set; }
