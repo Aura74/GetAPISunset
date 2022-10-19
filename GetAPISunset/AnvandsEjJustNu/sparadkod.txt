@@ -1,0 +1,40 @@
+﻿// convert 
+            //string dt = "2010-10-04T20:12:45-5:00";
+            //DateTime newDt = DateTime.Parse(dt);
+            //Console.WriteLine(newDt.ToString());
+
+            //int vadSrevDu = Convert.ToInt32(Console.ReadLine());
+            //int dayCount = 3;
+            //int dayCount = vadSrevDu;
+            //Console.WriteLine($"Du skrev {dayCount}");
+
+            //DateTime today = DateTime.Today;
+            //string requestStartDate = today.AddDays(-dayCount).ToString("yyyy-MM-dd");
+            //string requestEndDate = today.AddDays(-dayCount + 2).ToString("yyyy-MM-dd");
+
+            //DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
+            //TimeOnly timeOnly = TimeOnly.FromDateTime(DateTime.Now);
+            //Console.WriteLine($"DateOnly {dateOnly}");
+            //Console.WriteLine($"TimeOnly {timeOnly}");
+
+            //SunDate = requestStartDate;
+            //var SunDate = new DateOnly(y,m,d);
+            //Console.WriteLine(SunDate);
+
+            //var addDays = SunDate.AddDays(1);
+            //Console.WriteLine(addDays);
+
+
+            //var uri2 = $"https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=today"; // idag
+            //var uri3 = $"https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&formatted=0"; // dagens datum "sunrise":"2022-10-19T05:05:35+00:00",
+
+
+
+                        
+            //var toDayString = DateTime.Now.ToShortDateString();
+            //Console.WriteLine(toDayString);
+
+
+
+
+
