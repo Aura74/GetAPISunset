@@ -13,7 +13,7 @@ namespace GetAPISunset.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.;Database=SunMyDb;Integrated Security=true");
+            optionsBuilder.UseSqlServer("Server=.;Database=SunMyDb2;Integrated Security=true");
         }
         public DbSet<Results> SunTime { get; set; }
     }

@@ -96,7 +96,7 @@ namespace GetAPISunset
             var db = new ApplicationDbContext();
             var sunUpOrDownTime = new Results[]
             {
-                    new Results(){sunrise = $"{result.results.sunrise}", sunset = $"{result.results.sunset}"},
+                    new Results(){sunrise = $"{result.results.sunrise}", sunset = $"{result.results.sunset}", DagenDetGaller = wert.ToString()},
             };
             db.SunTime.AddRange(sunUpOrDownTime);
             db.SaveChanges();
