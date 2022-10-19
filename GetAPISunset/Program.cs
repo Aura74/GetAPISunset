@@ -5,6 +5,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using GetAPISunset.Data;
 
 namespace GetAPISunset
 {
@@ -27,6 +28,16 @@ namespace GetAPISunset
 
             Console.WriteLine($"Sunset: {result.results.sunset}");
             Console.WriteLine($"Sunrise: {result.results.sunrise}");
+
+            var db = new ApplicationDbContext();
+            var colors = new Results[]
+            {
+                new Results(){sunrise = "15", sunset = "28"},
+                new Results(){sunrise = "10", sunset = "20"},
+                new Results(){sunrise = "70", sunset = "90"}
+            };
+            db.SunTime.AddRange(colors);
+            db.SaveChanges();
         }
     }
 }
