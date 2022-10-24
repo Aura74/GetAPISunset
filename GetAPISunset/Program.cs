@@ -5,6 +5,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Assignment_A1_03;
 using GetAPISunset.Data;
 
 namespace GetAPISunset
@@ -15,8 +16,8 @@ namespace GetAPISunset
         {
             HttpClient httpClient = new HttpClient();
 
-            var latitude = 36.7201600;
-            var longitude = -4.4203400;
+            var latitude = 60.67452;
+            var longitude = 17.14174;
             var uri = $"https://api.sunrise-sunset.org/json?lat={latitude}&lng={longitude}&date={SunDate}";
 
             HttpResponseMessage response = await httpClient.GetAsync(uri);
@@ -28,19 +29,32 @@ namespace GetAPISunset
         static async Task Main(string[] args)
         {
             //var result = await GetWebApiLongLatAsync(2012, 8, 12);
-            
-            var dateOnly = new DateOnly(2022, 1, 1);
+
+            Console.WriteLine("Hämtar nu sol-data från internet.");
+            ConsoleUtility.WriteProgressBar(0);
+            for (var i = 0; i <= 100; ++i)
+            {
+                ConsoleUtility.WriteProgressBar(i, true);
+                Thread.Sleep(12);
+            }
+            Console.WriteLine("\n\nKlart\n");
+            Thread.Sleep(100);
+            Console.WriteLine("Laddar datan på skärmen och spar ner datan i databasen");
+
+            var dateOnly = new DateOnly(2022, 1, 1);//Välj datum
             //DateOnly wert = dateOnly;
-            DateOnly wert = DateOnly.FromDateTime(DateTime.Now);
+            DateOnly wert = DateOnly.FromDateTime(DateTime.Now);//Datum från idag .Now
             for (int i = 0; i < 5; i++)
             {
                 wert = wert.AddDays(1);
                 Console.WriteLine();
                 Console.WriteLine(wert);
-                var result = await GetWebApiLongLatAsync(wert.ToString());
+                var result = await GetWebApiLongLatAsync(wert.ToString());//Datum från idag .Now
+                //var result = await GetWebApiLongLatAsync(dateOnly.ToString());//Välj datum
 
-                Console.WriteLine($"Sunset: {result.results.sunset}");
                 Console.WriteLine($"Sunrise: {result.results.sunrise}");
+                Console.WriteLine($"Sunset: {result.results.sunset}");
+                
                 
                 var db = new ApplicationDbContext();
                 var sunUpOrDownTime = new Results[]
@@ -50,6 +64,6 @@ namespace GetAPISunset
                 db.SunTime.AddRange(sunUpOrDownTime);
                 db.SaveChanges();
             }//wert
-        }
-    }
-}
+        }//Main
+    }//Program
+}//namespace
